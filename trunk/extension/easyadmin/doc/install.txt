@@ -1,0 +1,18 @@
+easyadmin
+---------
+
+Installation instructions:
+
+- Either unpack the archive, or get the latest version from SVN.
+  URL: http://pubsvn.ez.no/community/trunk/extension/easyadmin
+
+
+- Place the 'easyadmin' folder in the 'extension' folder.
+
+- Open /settings/override/site.ini.append(.php) and add the easyadmin
+  extension to the active extensions.
+
+  [ExtensionSettings]
+  ActiveExtensions[]=easyadmin
+
+Please read the readme.txt to have more informations

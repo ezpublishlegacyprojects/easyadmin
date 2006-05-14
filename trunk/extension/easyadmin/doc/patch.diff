@@ -1,0 +1,24 @@
+Index: kernel/classes/ezcontentobject.php
+===================================================================
+--- kernel/classes/ezcontentobject.php	(revision 15731)
++++ kernel/classes/ezcontentobject.php	(working copy)
+@@ -3961,9 +3961,17 @@
+             $attributes = $objectNamePatternParts[$pos];
+ 
+             // if we have something like <attr1|attr2> then
+-            // 'attr1' will be updated only.
++	    // XAV: new rule: the attribute used is the first non empty one
++            // replace: 'attr1' will be updated only.
+             $attributes = explode( '|', $attributes );
+-            $attribute = $attributes[0];
++            foreach ($attributes as $attribute) {
++              $contentAttribute =& $dataMap[$attribute];
++              $dataType = $contentAttribute->dataType();
++	      if ($dataType->objectAttributeContent($contentAttribute)) {
++	        echo "$attribute=".$dataType->objectAttributeContent($contentAttribute);
++		continue;
++	      }
++            }			      
+ 
+             $newNamePart = $newNameParts[$pos+1];
+             if ( count( $newNamePart ) === 0 )
