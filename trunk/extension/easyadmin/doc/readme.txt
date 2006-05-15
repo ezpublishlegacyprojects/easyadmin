@@ -37,12 +37,21 @@ It also provides small tools so the editors or visitors can quicky create a new 
 
 2.1 Quick add
 {include uri="design:easyadmin/add.tpl" parentnodeid="$node.node_id" RedirectURIAfterPublish=concat("content/view/full/",$node.node_id)|ezurl()}
+
 This add a button, when you click on it, you can write the name of the content, set its class and publish it.
+
+You can also use it with a predefined class (eg 'topic'):
+{include uri="design:easyadmin/add.tpl" parentnodeid=$node.node_id classIdentifier='topic' label='add a topic' RedirectURIAfterPublish=$node.url_alias}
+
 
 3.Admin templates modified
 --------------------------
 
 ? Any idea where is the best place to put that ?
+(thinking loud and writing down some of Kristof's ideas 
+In the child window (quick add ?)
+In the browse window (quick add ?)
+Load (in the context menu) ?
 
 4. New views 
 --------------
@@ -51,14 +60,16 @@ This add a button, when you click on it, you can write the name of the content, 
 to create a new content
 If you know the node id of where you want to create the content (2 for the main node, 43 for the media folder...)
 /easyadmin/add/<nodeid>
-/easyadmin/create/<nodeid>/(class)/<classid)
+/easyadmin/add/<nodeid>/(class)/<classid>
 
 4.2 load
 to create several new content in one step
 /easyadmin/load/<nodeid>
-or
+or (to create articles)
 /easyadmin/load/<nodeid>/(class)/2
 
+On the first step, you put one name per line (in the multiline field)
+On the second step, you can correct (if needed) each of the name before you actually create it.
 
 5. Kernel limitation
 --------------------
