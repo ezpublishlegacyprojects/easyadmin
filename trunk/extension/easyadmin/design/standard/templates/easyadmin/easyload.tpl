@@ -10,7 +10,7 @@
 </ul>
 {else}
 <p>
-Put a list of content you want to create (one object per line), choose the type of content (class) you want to create and submit.
+Put a list of content you want to create (one object per line) you want to create and submit.
 </p>
 <textarea name="list" rows="20" cols="50">{if is_set($list)}{$list}{/if}
 </textarea>
@@ -18,7 +18,7 @@ Put a list of content you want to create (one object per line), choose the type 
 {if is_set($classid)}
   <input type="hidden" name="classid" value="{$classid}">
 {else}
-<br/>
+<p>Choose the type of content you want to create</p>
   <select name="classid">
   {section loop=fetch(class,list,hash())}
   <option value="{$:item.id}">{$:item.name}</option>
@@ -28,6 +28,7 @@ Put a list of content you want to create (one object per line), choose the type 
 {if is_set($parentnodeid)}
   <input type="hidden" name="parentnodeid" value="{$parentnodeid}">
 {/if}
+<br/>
   <input type="submit" name="add" value="create">
 </div>
 </form>
