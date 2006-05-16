@@ -36,6 +36,12 @@ It also provides small tools so the editors or visitors can quicky create a new 
 -------------------------------
 
 2.1 Quick add
+
+(within a full/line... tpl ie where $node is defined)
+{include uri="design:easyadmin/add.tpl"}
+
+else, if you want to set a different parentnodeid than the current node
+
 {include uri="design:easyadmin/add.tpl" parentnodeid=$node.node_id RedirectAfterPublish=concat("content/view/full/",$node.node_id)|ezurl()}
 
 This add a button, when you click on it, you can write the name of the content, set its class and publish it.
