@@ -15,7 +15,6 @@ Index: kernel/classes/ezcontentobject.php
 +              $contentAttribute =& $dataMap[$attribute];
 +              $dataType = $contentAttribute->dataType();
 +	      if ($dataType->objectAttributeContent($contentAttribute)) {
-+	        echo "$attribute=".$dataType->objectAttributeContent($contentAttribute);
 +		continue;
 +	      }
 +            }			      

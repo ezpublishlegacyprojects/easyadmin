@@ -36,13 +36,15 @@ It also provides small tools so the editors or visitors can quicky create a new 
 -------------------------------
 
 2.1 Quick add
-{include uri="design:easyadmin/add.tpl" parentnodeid="$node.node_id" RedirectURIAfterPublish=concat("content/view/full/",$node.node_id)|ezurl()}
+{include uri="design:easyadmin/add.tpl" parentnodeid=$node.node_id RedirectAfterPublish=concat("content/view/full/",$node.node_id)|ezurl()}
 
 This add a button, when you click on it, you can write the name of the content, set its class and publish it.
 
 You can also use it with a predefined class (eg 'topic'):
-{include uri="design:easyadmin/add.tpl" parentnodeid=$node.node_id classIdentifier='topic' label='add a topic' RedirectURIAfterPublish=$node.url_alias}
+{include uri="design:easyadmin/add.tpl" parentnodeid=$node.node_id classIdentifier='topic' label='add a topic' RedirectAfterPublish=concat("/",$node.url_alias)}
 
+default values:
+RedirectAfterPublish: redirect to the newly created node if you don't put any parameter
 
 3.Admin templates modified
 --------------------------

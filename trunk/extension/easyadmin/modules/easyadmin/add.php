@@ -44,14 +44,16 @@ if ( eZHTTPTool::hasPostVariable("name") ) {
 }
 
 if ( $name && $classid && $parentnodeid ) {
-  $nodeid=nodeCreate ($parentnodeid,$classid,$name);
+  $url=nodeCreate ($parentnodeid,$classid,$name);
+  if ($nodeid === false)
+    die ("couldn't create the node $name of type $classid under $parentnodeid");
   if ( ezHTTPTool::hasPostVariable( 'RedirectURIAfterPublish' ) ) {
+//    die (ezHTTPTool::postVariable( 'RedirectURIAfterPublish' ));
     ezHTTPTool::redirect(ezHTTPTool::postVariable( 'RedirectURIAfterPublish' ));
-    die (ezHTTPTool::postVariable( 'RedirectURIAfterPublish' ));
-    header("location:".ezHTTPTool::postVariable( 'RedirectURIAfterPublish' ));
   } else {
     //how to get the url_alias ?
-    header("location:/content/view/full/".$parentnodeid);
+    //die("location:/content/view/full/".$nodeid);
+    ezHTTPTool::redirect("/$url");
   }
 } else {
 $Result = array();

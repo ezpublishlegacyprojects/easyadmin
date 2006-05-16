@@ -3,10 +3,9 @@
 $Module = array( 'name' => 'Easy admin' );
 
 $ViewList = array();
-/*$ViewList['rename'] = array(
+$ViewList['rename'] = array(
     'script' => 'rename.php',
     'params' => array ( 'nodeid' ) );
-*/
 
 $ViewList['add'] = array(
     'script' => 'add.php',
