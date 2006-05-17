@@ -35,6 +35,8 @@ It also provides small tools so the editors or visitors can quicky create a new 
 2. How to use the new templates 
 -------------------------------
 
+The list of children is modified on the admin interface so you get a new "Quick add" button and a link to load a list of content.
+
 2.1 Quick add
 
 (within a full/line... tpl ie where $node is defined)
