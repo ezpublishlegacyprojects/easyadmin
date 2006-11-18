@@ -81,14 +81,35 @@ or (to create articles)
 On the first step, you put one name per line (in the multiline field)
 On the second step, you can correct (if needed) each of the name before you actually create it.
 
-5. Kernel limitation
+4.3 clear cache of the current page
+/easyadmin/clear/<nodeid>
+This clear the cache of the page nodeid. If it's called from a link in a page (eg from the view full), the page is redisplayed.
+
+5. Template to include in your public site pagelayout.tpl
+---------------------------------------------------------
+When you change a template, you have to clear the cache and redisplay your page to see the result.
+
+Dead slow, no fun.
+
+You can add (at the bottom of your pagelayout or instance)
+
+{include uri="design:easyadmin/clear.tpl"}
+
+Then you have a "Refresh this page" link. You clic on it, the page is redisplayed after having cleared the cache (of only the current page).
+
+Tip: it has an accesskey of R, meaning that if you type alt+R it is going to redisplay your page taking into account the new templates.
+
+Life is great again
+
+
+6. Kernel limitation
 --------------------
 When renaming a folder (that's the method used to quick create a content), it updates the short_name, not the name attribute).
 You can see the status of that bug here:
 http://ez.no/bugs/view/8278
 and apply the patch yourself to solve it.
 
-6. Disclaimer & Copyright
+7. Disclaimer & Copyright
 -------------------------
 /*
     Easycontent for eZ publish 3.x

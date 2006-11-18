@@ -11,13 +11,19 @@ $parentnodeid=null;
 
 $tpl =& templateInit();
 
-if (isset ($Params['Parameters'][0])) {
-  $parentnodeid=$Params['Parameters'][0];
-  $tpl->setVariable('parentnodeid',$Params['Parameters'][0]);
-}
 if ( eZHTTPTool::hasPostVariable("parentnodeid") ) {
     $parentnodeid=eZHTTPTool::postVariable("parentnodeid");
 }
+else {
+  if (isset ($Params['Parameters'][0])) {
+  $parentnodeid=$Params['Parameters'][0];
+  }
+}
+
+if (isset ($parentnodeid))
+  $tpl->setVariable('parentnodeid',$parentnodeid);
+else
+  eZDebug::writeError( "no parentnodeid" , 'ezadmin/easyadd.php');
 
 if (isset ($Params['UserParameters']['class'] ) ) {
    $classid=$Params['UserParameters']['class'];
@@ -33,6 +39,8 @@ else if ( ezHTTPTool::hasPostVariable( 'classIdentifier' ) ) {
      $classid = $class->attribute( 'id' );
   }
 }  
+if ( eZHTTPTool::hasPostVariable("ClassID") ) 
+   $classid=eZHTTPTool::postVariable("ClassID");
 
 if (isset($classid)) {
   $tpl->setVariable('classid',$classid);
@@ -43,6 +51,8 @@ if ( eZHTTPTool::hasPostVariable("name") ) {
    $tpl->setVariable('name',$name);
 }
 
+print_r($_POST);  
+echo "name=$name & classid=$classid & parent=$parentnodeid";
 if ( $name && $classid && $parentnodeid ) {
   $url=nodeCreate ($parentnodeid,$classid,$name);
   if ($nodeid === false)

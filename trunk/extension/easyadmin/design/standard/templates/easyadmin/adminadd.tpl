@@ -4,8 +4,9 @@ function quickadd (button)
 {ldelim}
 var editfield=document.getElementById('{$nameid}');
 var oldsubmit=document.getElementById('standardadd');
-var classid=document.getElementById('classid');
-classid.name="classid";
+//var classid=document.getElementById('ClassID');
+//classid.name="classid";
+//alert (classid.name);
 oldsubmit.style.display='none';
 editfield.style.display='block';
 editfield.focus();

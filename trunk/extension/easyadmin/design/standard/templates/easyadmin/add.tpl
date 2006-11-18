@@ -4,7 +4,7 @@
 {/if}
 <form action="/easyadmin/add" method="post">
 <div class="easyadd">
-<input name="name" id="{$nameid}" style="display:none;" value="{if is_set($name)}{$name}{/if}"/>
+<input id="{$nameid}" style="display:none;" value="{if is_set($name)}{$name}{/if}"/>
 {if is_set($parentnodeid)}
   <input type="hidden" name="parentnodeid" value="{$parentnodeid}">
 {else}
