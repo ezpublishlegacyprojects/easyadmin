@@ -51,8 +51,6 @@ if ( eZHTTPTool::hasPostVariable("name") ) {
    $tpl->setVariable('name',$name);
 }
 
-print_r($_POST);  
-echo "name=$name & classid=$classid & parent=$parentnodeid";
 if ( $name && $classid && $parentnodeid ) {
   $url=nodeCreate ($parentnodeid,$classid,$name);
   if ($nodeid === false)

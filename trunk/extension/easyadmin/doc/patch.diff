@@ -1,8 +1,8 @@
 Index: kernel/classes/ezcontentobject.php
 ===================================================================
---- kernel/classes/ezcontentobject.php	(revision 15731)
+--- kernel/classes/ezcontentobject.php	(revision 17392)
 +++ kernel/classes/ezcontentobject.php	(working copy)
-@@ -3961,9 +3961,17 @@
+@@ -3996,9 +3996,16 @@
              $attributes = $objectNamePatternParts[$pos];
  
              // if we have something like <attr1|attr2> then

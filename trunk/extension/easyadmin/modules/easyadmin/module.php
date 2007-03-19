@@ -11,6 +11,15 @@ $ViewList['rename'] = array(
     'script' => 'rename.php',
     'params' => array ( 'nodeid' ) );
 
+$ViewList['addlocation'] = array(
+    'script' => 'addlocation.php',
+    'params' => array ( 'objectid' ) );
+
+$ViewList['setsection'] = array(
+    'script' => 'setsection.php',
+"unordered_params" => array( "view" => "view" ),
+    'params' => array ( 'objectid' ) );
+
 $ViewList['add'] = array(
     'script' => 'add.php',
     'params' => array ('nodeid' ),
