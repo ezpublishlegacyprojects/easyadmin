@@ -18,13 +18,13 @@ else {
   }
 }
 
-foreach ($Params[UserParameters] as $param => $value)
+foreach ($Params['UserParameters'] as $param => $value)
     $tpl->setVariable( $param, $value );
 
 if (isset ($objectid))
   $tpl->setVariable('objectid',$objectid);
 else {
-  eZDebug::writeError( "no objectid" , 'ezadmin/addlocation.php');
+  eZDebug::writeError( "no objectid" , 'ezadmin/setsection.php');
   return;
 }
 
@@ -45,12 +45,17 @@ if ( eZHTTPTool::hasPostVariable("sectionid") ) {
   $db->query( "UPDATE ezsearch_object_word_link SET section_id='$sectionID' WHERE contentobject_id = $objectid" );
   $db->commit();
   $object->SectionID=$sectionID;
-//    function clearObjectViewCache( $objectID, $versionNum = true, $additionalNodeList = false )
   eZContentCacheManager:: clearObjectViewCache( $objectid,true,$extraNodes) ;
+  $module =& $Params["Module"];
+  if ( eZHTTPTool::hasPostVariable("RedirectURI") ) {
+    $module->redirectTo(eZHTTPTool::postVariable("RedirectURI"));
+    return;
+  }
+  //success, then. redisplay the previous page.
+  $module->redirectTo($_SERVER["HTTP_REFERER"]);
 
-//   $node =& eZContentObjectTreeNode::addChild( $objectid, $parentnodeid, true );
-//   $node->store();
 }
+
 {
   include_once( 'kernel/classes/ezsection.php' );
 

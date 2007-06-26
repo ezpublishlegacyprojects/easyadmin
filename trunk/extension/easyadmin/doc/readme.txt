@@ -109,11 +109,21 @@ You can see the status of that bug here:
 http://ez.no/bugs/view/8278
 and apply the patch yourself to solve it.
 
-7. Disclaimer & Copyright
+7. Improved collaborative approval workflow
+-------------------------------------------
+A new event can automatically set the section of the published contents of a specific class. 
+(see the setting setsection.ini)
+
+Usage: new comments are automatically into a section "To be moderated", where only admin have read/write access to.
+
+I've modified the template to this article is displayed with a big "TO BE APPROVED" background, and an approve buton (design/standard/templates/easyadmin/quicksetsection.tpl), that allows it to switch back to the "general" (or whatever standard section) you have and therefore be visible by anyone.
+
+
+8. Disclaimer & Copyright
 -------------------------
 /*
     Easycontent for eZ publish 3.x
-    Copyright (C) 2006  Sydesy ltd
+    Copyright (C) 2006-2007  Sydesy ltd
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
